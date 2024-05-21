@@ -21,6 +21,3 @@ Test : `make test`
 
 ## Note
 Copy items_id from getDetail API response for testing delete some item when update invoice
-
-## Note
-Mohon maaf karena menggunakan postgres dikarenakan kendala installasi menggunakan mysql 5.7
