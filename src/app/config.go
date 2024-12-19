@@ -36,6 +36,7 @@ type (
 		Postgres    Postgres    `mapstructure:",squash"`
 		Redis       Redis       `mapstructure:",squash"`
 		Translation Translation `mapstructure:",squash"`
+		DelayTime   int         `mapstructure:"DELAY_TIMEOUT"`
 
 		Environment string `mapstructure:"ENV" validate:"required,oneof=development staging production"`
 		BindAddress int    `mapstructure:"BIND_ADDRESS" validate:"required"`

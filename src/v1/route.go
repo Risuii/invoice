@@ -12,6 +12,8 @@ func Router(r *chi.Mux, deps *Dependency) {
 		w.Write([]byte("ok"))
 	})
 
+	r.Get("/testAPI", handler.TestApi(deps.Services.Invoicesvc))
+
 	// product
 
 	r.Route("/invoice/v1", func(v1 chi.Router) {

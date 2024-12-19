@@ -17,6 +17,7 @@ type appContext struct {
 	requestValidator *validator.Validate
 	redis            frsRedis.Redis
 	cfg              *Configuration
+	delayTime        int
 }
 
 var appCtx appContext
@@ -50,6 +51,8 @@ func Init(ctx context.Context) error {
 		return err
 	}
 
+	delay := cfg.DelayTime
+
 	redis, err := frsRedis.InitRedis(ctx, cfg.Redis.Host, cfg.Redis.Password)
 	if err != nil {
 		return err
@@ -60,6 +63,7 @@ func Init(ctx context.Context) error {
 		redis:            redis,
 		requestValidator: validator.New(),
 		cfg:              cfg,
+		delayTime:        delay,
 	}
 
 	return nil

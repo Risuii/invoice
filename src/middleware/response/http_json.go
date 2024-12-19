@@ -31,3 +31,8 @@ func JSONUnprocessableEntity(ctx context.Context, w http.ResponseWriter, err i18
 	JSONResponse(ctx, w, createErrorResponse(err, request.GetRequestID(ctx), request.GetLanguage(ctx)),
 		http.StatusUnprocessableEntity)
 }
+
+func JSONTimeOut(ctx context.Context, w http.ResponseWriter, err i18n_err.I18nError) {
+	JSONResponse(ctx, w, createErrorResponse(err, request.GetRequestID(ctx), request.GetLanguage(ctx)),
+		http.StatusGatewayTimeout)
+}
